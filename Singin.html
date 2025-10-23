@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identification</title>
+
+    <!-- ✅ Bootstrap CSS (required for header/footer layout) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- ✅ Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- ✅ Custom CSS -->
+    <style>
+
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/*
+ * HEADER STYLES (Retained from previous steps)
+ */
+.lv-contact-us {
+  color: black !important;
+  text-decoration: none;
+}
+.lv-contact-us:hover {
+  color: #000000; /* stays black on hover */
+}
+
+
+.lv-header {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 1rem 0;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+}
+.lv-logo {
+    font-size: 1.8rem;
+    font-weight: 900; 
+    letter-spacing: 0.1rem;
+    color: black;
+    text-decoration: none;
+}
+.lv-icon-link {
+    color: black;
+    text-decoration: none;
+    margin-left: 1rem;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+.lv-icon-link span {
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+}
+.lv-contact-us {
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-right: 1rem;
+    white-space: nowrap;
+}
+.lv-badge {
+    font-size: 0.7rem;
+    position: absolute;
+    top: -0.2rem;
+    right: -0.5rem;
+}
+.lv-bag-icon-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+        :root {
+    --main-bg-color: #f7f7f7;
+    --primary-text-color: #1a1a1a;
+    --border-color: #cccccc;
+    --button-bg-color: #000000;
+    --button-text-color: #ffffff;
+    --google-blue: #4285f4;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif; /* Use a clean, accessible font */
+}
+
+body {
+    background-color: var(--main-bg-color);
+    color: var(--primary-text-color);
+    line-height: 1.6;
+    padding: 0; /* Remove body padding */
+}
+
+header {
+    padding: 40px 10%;
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--border-color);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+.identification-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    min-height: 700px; /* Ensure content area is tall */
+}
+
+/* --- Left Column (Login) --- */
+.login-section {
+    flex: 1; /* Takes up 50% width */
+    padding: 40px 10%;
+    border-right: 1px solid var(--border-color);
+}
+
+.login-section h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.login-form {
+    max-width: 380px; /* Constrain form width */
+}
+
+.google-signin-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #ffffff;
+    color: var(--primary-text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.google-signin-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.google-signin-btn i {
+    margin-right: 10px;
+    font-size: 1.1rem;
+    color: var(--google-blue); /* Optional: Use Google's color for the icon */
+}
+
+.or-separator {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.required-fields-note {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 10px 10px 0; /* Padding for input */
+    border: none;
+    border-bottom: 1px solid var(--primary-text-color); /* Underline style */
+    font-size: 1rem;
+    outline: none;
+    transition: border-bottom-color 0.3s;
+}
+
+.input-group input:focus {
+    border-bottom-color: var(--google-blue); /* Highlight on focus */
+}
+
+.password-group .password-toggle {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+}
+
+.forgot-password {
+    display: block;
+    font-size: 0.8rem;
+    margin-top: -10px;
+    margin-bottom: 25px;
+    color: #888;
+    text-decoration: underline;
+}
+
+.onetime-login {
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+.onetime-login a {
+    color: var(--primary-text-color);
+    text-decoration: underline;
+}
+
+.signin-btn {
+    width: 180px; /* Fixed width as seen in the image */
+    padding: 12px;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.signin-btn:hover {
+    background-color: #333333;
+}
+
+/* --- Right Column (Registration) --- */
+.registration-section {
+    flex: 1; /* Takes up 50% width */
+    padding: 40px 10%;
+}
+
+.registration-section h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.access-text {
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+.my-account-benefits {
+    background-color: #fafafa;
+    border: 1px solid #eee;
+    padding: 25px;
+    margin-bottom: 60px;
+}
+
+.my-account-benefits p {
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.my-account-benefits ul {
+    list-style: none;
+}
+
+.my-account-benefits li {
+    padding: 8px 0;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+}
+
+.my-account-benefits li i {
+    font-size: 1.1rem;
+    width: 25px; /* Fixed space for icons */
+    text-align: center;
+    margin-right: 10px;
+}
+
+.create-account-btn {
+    padding: 12px 30px;
+    background-color: #ffffff;
+    color: var(--primary-text-color);
+    border: 1px solid var(--primary-text-color);
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.create-account-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* --- Footer Logo --- */
+.logo-footer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.lv-logo-placeholder {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    /* You would replace this with the actual image background/content */
+}
+
+/* --- Responsive Adjustments (Optional but Recommended) --- */
+@media (max-width: 900px) {
+    .identification-container {
+        flex-direction: column; /* Stacks the columns vertically */
+    }
+
+    .login-section {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+}
+.lv-footer {
+    /* Base styling for the footer area */
+    background-color: white;
+    color: #333; /* Default text color */
+    font-size: 0.9rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* Style for the 4-column link section */
+.footer-top-links {
+    font-size: 0.85rem;
+}
+
+/* Column Header Styling */
+.footer-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+/* General text within columns */
+.footer-text {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+/* List of links */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+/* Link color and hover effect */
+.footer-links a, .footer-text a {
+    color: #333;
+    text-decoration: none;
+}
+
+.footer-links a:hover, .footer-text a:hover {
+    text-decoration: underline;
+}
+
+/* Divider line between link section and legal section */
+.footer-divider {
+    border: 0;
+    border-top: 1px solid #e0e0e0;
+    margin: 1rem 0;
+}
+
+/* Bottom Section Styles (Ship To, Legal, Copyright) */
+.footer-bottom {
+    font-size: 0.75rem; /* Smaller font size for legal links */
+}
+
+/* Country selector link */
+.country-link {
+    color: #333;
+    text-decoration: underline;
+    white-space: nowrap;
+}
+
+/* Legal links (Sitemap, Privacy, etc.) */
+.footer-legal-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 15px; /* Horizontal spacing between links */
+    margin: 0;
+}
+
+.footer-legal-links a {
+    color: #333;
+    text-decoration: none;
+}
+
+.footer-legal-links a:hover {
+    text-decoration: underline;
+}
+
+/* Louis Vuitton logo at the very bottom */
+.lv-logo-bottom {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    color: black;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem; /* Small margin at the bottom of the page */
+}
+
+/* Placeholder for the 'Your Privacy Choices' icon (replace with image or specialized icon if available) */
+.privacy-icon-placeholder {
+    /* You would typically use an image or an icon font for this part */
+    display: inline-block;
+    width: 16px;
+    height: 10px;
+    background-color: transparent; /* Placeholder style */
+    border: 1px solid #333;
+    vertical-align: middle;
+    margin-right: 3px;
+    border-radius: 2px;
+}
+/*
+ * CHAT BUTTON STYLES (Retained from previous steps)
+ */
+.chat-floating-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 8px 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    z-index: 1030;
+    display: flex;
+    align-items: center;
+}
+.chat-floating-btn i {
+    margin-right: 5px;
+}
+.chat-floating-btn .fa-chevron-up {
+    margin-left: 5px;
+    margin-right: 0;
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="lv-header">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            
+            <div class="col-4 d-flex justify-content-start">
+                <a href="#" class="lv-icon-link" id="menuToggle">
+                    <i class="fa-solid fa-bars"></i>
+                    <span>Menu</span>
+                </a>
+                <a href="search.html" class="lv-icon-link d-none d-sm-flex">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Search</span>
+                </a>
+            </div>
+
+            <div class="col-4 text-center">
+                <a href="#" class="lv-logo">LOUIS VUITTON</a>
+            </div>
+
+            <div class="col-4 d-flex justify-content-end align-items-center">
+                <a href="Contact.html" class="lv-contact-us d-none d-lg-block" style="color: black; text-decoration: none;">Contact Us</a>
+
+                <a href="wishlist.html" class="lv-icon-link d-none d-md-flex">
+                    <i class="fa-regular fa-heart"></i>
+                </a>
+                <a href="wishlist.html" class="lv-icon-link">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+                <a href="#" class="lv-icon-link">
+                    <div class="lv-bag-icon-wrapper">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="lv-badge">0</span> 
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="identification-container">
+        <section class="login-section">
+            <h2>I already have an account.</h2>
+
+            <div class="login-form">
+                <button class="google-signin-btn" onclick="handleGoogleSignIn()">
+                    <i class="fab fa-google"></i> Sign In With Google
+                </button>
+
+                <p class="or-separator">OR</p>
+
+                <div class="required-fields-note">Required Fields.*</div>
+
+                <div class="input-group">
+                    <label for="login-id">Login*</label>
+                    <input type="text" id="login-id" name="login-id" required>
+                </div>
+
+                <div class="input-group password-group">
+                    <label for="password">Password*</label>
+                    <input type="password" id="password" name="password" required>
+                    <span class="password-toggle" onclick="togglePasswordVisibility()">
+                        <i class="fas fa-eye-slash"></i>
+                    </span>
+                </div>
+
+                <a href="#" class="forgot-password">Forgot your password?</a>
+
+                <p class="onetime-login">
+                    Or use a one-time login link to sign in 
+                    <a href="#" onclick="emailOneTimeLink()">Email me the link.</a>
+                </p>
+
+                <button class="signin-btn" onclick="handleSignIn()">Sign in</button>
+            </div>
+        </section>
+
+        <section class="registration-section">
+            <h2>I do not have an account.</h2>
+
+            <p class="access-text">
+                Access your MyLV account to discover your wishlist and order history.
+            </p>
+
+            <div class="my-account-benefits">
+                <p>What you will find in your MyLV account:</p>
+                <ul>
+                    <li><i class="fas fa-box"></i> Access your order history</li>
+                    <li><i class="fas fa-user-circle"></i> Manage your personal information</li>
+                    <li><i class="fas fa-envelope"></i> Receive Louis Vuitton's digital communications</li>
+                    <li><i class="fas fa-heart"></i> Register your wishlist</li>
+                </ul>
+            </div>
+
+           <a href="registration.html" class="create-account-btn">Create a MyLV Account</a>
+        </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="lv-footer mt-5 pt-5">
+        <div class="container">
+            <div class="row pb-5 footer-top-links">
+                
+                <div class="col-6 col-md-3 mb-4">
+                    <h6 class="footer-title">HELP</h6>
+                    <p class="footer-text">
+                        Our Client Advisors are available by phone at 
+                        <a href="tel:+18668848866">+1.866.VUITTON</a>, or you may also 
+                        <a href="#">chat with us</a>.
+                    </p>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Product Care</a></li>
+                        <li><a href="#">Stores</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-3 mb-4">
+                    <h6 class="footer-title">SERVICES</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">Repairs</a></li>
+                        <li><a href="#">Personalization</a></li>
+                        <li><a href="#">Art of Gifting</a></li>
+                        <li><a href="#">Download our Apps</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-3 mb-4">
+                    <h6 class="footer-title">ABOUT LOUIS VUITTON</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">Fashion Shows</a></li>
+                        <li><a href="#">Arts & Culture</a></li>
+                        <li><a href="#">La Maison</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Latest News</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Foundation Louis Vuitton</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-3 mb-4">
+                    <h6 class="footer-title">EMAIL AND SMS SIGN-UP</h6>
+                    <p class="footer-text">
+                        Subscribe for exclusive email and SMS updates and receive the latest news from Louis Vuitton.
+                    </p>
+                    <h6 class="footer-title mt-4">Follow Us</h6>
+                </div>
+
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="row align-items-center py-3 footer-bottom">
+                <div class="col-12 col-lg-6 d-flex align-items-center mb-3 mb-lg-0">
+                    <span class="footer-small-text me-2">Ship to:</span>
+                    <a href="#" class="country-link">
+                        <i class="fa-solid fa-flag-usa me-1"></i> United States of America
+                    </a>
+                </div>
+
+                <div class="col-12 col-lg-6 d-flex flex-wrap justify-content-lg-end">
+                    <ul class="footer-legal-links">
+                        <li><a href="#">Sitemap</a></li>
+                        <li><a href="#">Legal Notices</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">California Supply Chains Act</a></li>
+                        <li><a href="#">Your Privacy Choices</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-12 text-center mt-3">
+                    <p class="lv-logo-bottom">LOUIS VUITTON</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ✅ Bootstrap JS (required for grid + responsive layout) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- ✅ Custom JS -->
+    <script >
+        function handleGoogleSignIn() {
+    console.log("Initiate Google OAuth flow...");
+    // Real implementation: Redirect to Google's sign-in page
+}
+
+function handleSignIn() {
+    const login = document.getElementById('login-id').value;
+    const password = document.getElementById('password').value;
+    console.log(`Attempting sign in for: ${login}`);
+    // Real implementation: Send login/password to server for validation
+}
+
+function handleCreateAccount() {
+    console.log("Navigating to account creation page...");
+    // Real implementation: Redirect user to the registration form
+}
+
+function emailOneTimeLink() {
+    console.log("Initiate one-time login link email process...");
+    // Real implementation: Prompt user for email and send link
+}
+
+// Function to toggle password visibility
+function togglePasswordVisibility() {
+    const passwordInput = document.getElementById('password');
+    const toggleIcon = document.querySelector('.password-toggle i');
+
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleIcon.classList.remove('fa-eye-slash');
+        toggleIcon.classList.add('fa-eye');
+    } else {
+        passwordInput.type = 'password';
+        toggleIcon.classList.remove('fa-eye');
+        toggleIcon.classList.add('fa-eye-slash');
+    }
+}
+    </script>
+
+</body>
+</html>

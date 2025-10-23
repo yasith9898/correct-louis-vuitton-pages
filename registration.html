@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOUIS VUITTON | MyLV ACCOUNT CREATION</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.registration-header {
+    padding: 20px 0;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 40px;
+}
+
+.brand-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: #1a1a1a;
+}
+
+.brand-name {
+    font-weight: 600;
+}
+
+.divider {
+    color: #999;
+}
+
+.page-title {
+    font-weight: 400;
+    color: #666;
+}
+
+.registration-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 30px 60px;
+}
+
+.form-title {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 25px;
+    color: #1a1a1a;
+}
+
+.google-signin-btn {
+    width: 100%;
+    max-width: 100%;
+    padding: 14px 20px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #3c4043;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 20px;
+}
+
+.google-signin-btn:hover {
+    background-color: #f8f9fa;
+    border-color: #c6c6c6;
+}
+
+.intro-text {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.login-link {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.text-link {
+    color: #1a1a1a;
+    text-decoration: underline;
+}
+
+.text-link:hover {
+    color: #000;
+}
+
+.required-notice {
+    text-align: right;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.registration-form {
+    margin-top: 30px;
+}
+
+.form-group {
+    margin-bottom: 0;
+}
+
+.form-label {
+    font-size: 13px;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-control,
+.form-select {
+    padding: 12px 16px;
+    border: 1px solid #d1d1d1;
+    border-radius: 0;
+    font-size: 14px;
+    color: #1a1a1a;
+    background-color: #fff;
+    transition: border-color 0.2s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #1a1a1a;
+    box-shadow: none;
+    outline: none;
+}
+
+.form-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 12px;
+    padding-right: 40px;
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    padding: 5px;
+}
+
+.password-toggle:hover {
+    color: #1a1a1a;
+}
+
+.phone-input-wrapper {
+    display: flex;
+    gap: 10px;
+}
+
+.country-code {
+    width: 100px;
+    flex-shrink: 0;
+}
+
+.phone-number {
+    flex: 1;
+}
+
+.form-text {
+    display: block;
+    margin-top: 8px;
+    font-size: 11px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.consent-section {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #e5e5e5;
+}
+
+.form-check {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.form-check-input {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    margin-right: 12px;
+    border: 1px solid #999;
+    border-radius: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.form-check-input:checked {
+    background-color: #1a1a1a;
+    border-color: #1a1a1a;
+}
+
+.form-check-input:focus {
+    border-color: #1a1a1a;
+    box-shadow: none;
+}
+
+.form-check-label {
+    font-size: 13px;
+    color: #1a1a1a;
+    cursor: pointer;
+    line-height: 1.5;
+}
+
+.preferences-section {
+    margin-top: 20px;
+}
+
+.preferences-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+}
+
+.marketing-texts-label {
+    display: block;
+}
+
+.preference-title {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.preference-description {
+    font-size: 11px;
+    color: #666;
+    line-height: 1.6;
+    margin-top: 5px;
+}
+
+.submit-section {
+    margin-top: 50px;
+    text-align: right;
+}
+
+.btn-continue {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 16px 60px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 0;
+    text-transform: uppercase;
+}
+
+.btn-continue:hover {
+    background-color: #333;
+}
+
+.activation-notice {
+    font-size: 12px;
+    color: #666;
+    margin-top: 15px;
+    text-align: right;
+}
+
+@media (max-width: 768px) {
+    .registration-container {
+        padding: 0 20px 40px;
+    }
+
+    .brand-section {
+        font-size: 10px;
+        gap: 8px;
+    }
+
+    .form-title {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .google-signin-btn {
+        padding: 12px 16px;
+        font-size: 13px;
+    }
+
+    .required-notice {
+        text-align: left;
+        margin-top: 10px;
+    }
+
+    .row.g-4 {
+        gap: 1.5rem !important;
+    }
+
+    .submit-section {
+        text-align: center;
+    }
+
+    .btn-continue {
+        width: 100%;
+        padding: 16px 40px;
+    }
+
+    .activation-notice {
+        text-align: center;
+    }
+
+    .form-label {
+        font-size: 12px;
+    }
+
+    .form-control,
+    .form-select {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 576px) {
+    .registration-header {
+        padding: 15px 0;
+        margin-bottom: 25px;
+    }
+
+    .registration-container {
+        padding: 0 15px 30px;
+    }
+
+    .brand-section {
+        font-size: 9px;
+        flex-wrap: wrap;
+    }
+
+    .form-title {
+        font-size: 18px;
+    }
+
+    .google-signin-btn {
+        font-size: 12px;
+        padding: 12px;
+    }
+
+    .intro-text,
+    .login-link {
+        font-size: 12px;
+    }
+
+    .phone-input-wrapper {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .country-code {
+        width: 100%;
+    }
+
+    .consent-section {
+        margin-top: 30px;
+        padding-top: 20px;
+    }
+
+    .preferences-title {
+        font-size: 13px;
+    }
+
+    .form-check-label {
+        font-size: 12px;
+    }
+
+    .preference-description {
+        font-size: 10px;
+    }
+
+    .btn-continue {
+        padding: 14px 30px;
+        font-size: 13px;
+    }
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+}
+
+.lv-footer {
+    /* Base styling for the footer area */
+    background-color: white;
+    color: #333; /* Default text color */
+    font-size: 0.9rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* Style for the 4-column link section */
+.footer-top-links {
+    font-size: 0.85rem;
+}
+
+/* Column Header Styling */
+.footer-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+/* General text within columns */
+.footer-text {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+/* List of links */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+/* Link color and hover effect */
+.footer-links a, .footer-text a {
+    color: #333;
+    text-decoration: none;
+}
+
+.footer-links a:hover, .footer-text a:hover {
+    text-decoration: underline;
+}
+
+/* Divider line between link section and legal section */
+.footer-divider {
+    border: 0;
+    border-top: 1px solid #e0e0e0;
+    margin: 1rem 0;
+}
+
+/* Bottom Section Styles (Ship To, Legal, Copyright) */
+.footer-bottom {
+    font-size: 0.75rem; /* Smaller font size for legal links */
+}
+
+/* Country selector link */
+.country-link {
+    color: #333;
+    text-decoration: underline;
+    white-space: nowrap;
+}
+
+/* Legal links (Sitemap, Privacy, etc.) */
+.footer-legal-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 15px; /* Horizontal spacing between links */
+    margin: 0;
+}
+
+.footer-legal-links a {
+    color: #333;
+    text-decoration: none;
+}
+
+.footer-legal-links a:hover {
+    text-decoration: underline;
+}
+
+/* Louis Vuitton logo at the very bottom */
+.lv-logo-bottom {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    color: black;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem; /* Small margin at the bottom of the page */
+}
+
+/* Placeholder for the 'Your Privacy Choices' icon (replace with image or specialized icon if available) */
+.privacy-icon-placeholder {
+    /* You would typically use an image or an icon font for this part */
+    display: inline-block;
+    width: 16px;
+    height: 10px;
+    background-color: transparent; /* Placeholder style */
+    border: 1px solid #333;
+    vertical-align: middle;
+    margin-right: 3px;
+    border-radius: 2px;
+}
+/*
+ * CHAT BUTTON STYLES (Retained from previous steps)
+ */
+.chat-floating-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 8px 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    z-index: 1030;
+    display: flex;
+    align-items: center;
+}
+.chat-floating-btn i {
+    margin-right: 5px;
+}
+.chat-floating-btn .fa-chevron-up {
+    margin-left: 5px;
+    margin-right: 0;
+}
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <header class="registration-header">
+                    <div class="brand-section">
+                        <span class="brand-name">LOUIS VUITTON</span>
+                        <span class="divider">|</span>
+                        <span class="page-title">MyLV ACCOUNT CREATION</span>
+                    </div>
+                </header>
+
+                <div class="registration-container">
+                    <h1 class="form-title">Create Your Account</h1>
+
+                    <button class="google-signin-btn">
+                        <svg width="18" height="18" viewBox="0 0 18 18">
+                            <path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/>
+                            <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z"/>
+                            <path fill="#FBBC05" d="M3.964 10.707c-.18-.54-.282-1.117-.282-1.707s.102-1.167.282-1.707V4.961H.957C.347 6.175 0 7.55 0 9s.348 2.825.957 4.039l3.007-2.332z"/>
+                            <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z"/>
+                        </svg>
+                        Sign In With Google
+                    </button>
+
+                    <p class="intro-text">Create your account to have access to a personalized experience.</p>
+                    
+                    <div class="login-link">
+                        Already have a MyLV account? <a href="#" class="text-link">Log in here.</a>
+                    </div>
+
+                    <div class="required-notice">
+                        Required fields*
+                    </div>
+
+                    <form id="registrationForm" class="registration-form">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Email*</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="title" class="form-label">Title*</label>
+                                    <select class="form-select" id="title" required>
+                                        <option value="" selected>Select your title</option>
+                                        <option value="mr">Mr.</option>
+                                        <option value="mrs">Mrs.</option>
+                                        <option value="ms">Ms.</option>
+                                        <option value="mx">Mx.</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="emailConfirm" class="form-label">Email Confirmation*</label>
+                                    <input type="email" class="form-control" id="emailConfirm" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="firstName" class="form-label">First Name*</label>
+                                    <input type="text" class="form-control" id="firstName" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="password" class="form-label">Password*</label>
+                                    <div class="password-wrapper">
+                                        <input type="password" class="form-control" id="password" required>
+                                        <button type="button" class="password-toggle" aria-label="Toggle password visibility">
+                                            <i class="far fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="lastName" class="form-label">Last Name*</label>
+                                    <input type="text" class="form-control" id="lastName" required>
+                                </div>
+                            </div>
+
+                            <div class="col-12"></div>
+
+                            <div class="col-md-6">
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="phoneNumber" class="form-label">Phone Number</label>
+                                    <div class="phone-input-wrapper">
+                                        <select class="form-select country-code" id="countryCode">
+                                            <option value="+1" selected>+1</option>
+                                            <option value="+44">+44</option>
+                                            <option value="+33">+33</option>
+                                            <option value="+49">+49</option>
+                                            <option value="+81">+81</option>
+                                            <option value="+86">+86</option>
+                                        </select>
+                                        <input type="tel" class="form-control phone-number" id="phoneNumber" placeholder="XXX-XXX-XXXX">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12"></div>
+
+                            <div class="col-md-6">
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="dateOfBirth" class="form-label">Date of Birth</label>
+                                    <input type="date" class="form-control" id="dateOfBirth">
+                                    <small class="form-text">I confirm my date of birth is accurate. Entering an inaccurate birthdate may disrupt services offered to me by Louis Vuitton.</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="consent-section">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="marketingConsent" checked>
+                                <label class="form-check-label" for="marketingConsent">
+                                    I consent to receive Louis Vuitton marketing communications in accordance with our <a href="#" class="text-link">Privacy Policy</a>
+                                </label>
+                            </div>
+
+                            <div class="preferences-section">
+                                <h3 class="preferences-title">My Preferences:</h3>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="marketingEmails" checked>
+                                    <label class="form-check-label" for="marketingEmails">
+                                        Marketing Emails
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="marketingTexts">
+                                    <label class="form-check-label marketing-texts-label" for="marketingTexts">
+                                        <div class="preference-title">Marketing Texts</div>
+                                        <div class="preference-description">
+                                            By entering your phone number, you agree to receive automated recurring marketing text messages from Louis Vuitton at the phone number provided. Consent is not a condition of purchase. Msg frequency varies. Msg and data rates may apply. Consent is not a condition of purchase. Text STOP to opt-out of the program. If you opt-out, you may continue to receive transactional or relationship messages. Reply HELP for help. View our mobile <a href="#" class="text-link">Terms & Conditions</a> and <a href="#" class="text-link">Privacy Policy.</a> You further agree to opt out of the program if you change, cancel, or sell your mobile plan or number.
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="targetedAdvertising" checked>
+                                    <label class="form-check-label" for="targetedAdvertising">
+                                        Targeted Advertising <a href="#" class="text-link">via Third-Party Partners</a>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="submit-section">
+                            <button type="submit" class="btn-continue">Continue</button>
+                            <p class="activation-notice">You will receive an activation code by email to validate your account creation.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<footer class="lv-footer mt-5 pt-5">
+    <div class="container">
+        
+        <div class="row pb-5 footer-top-links">
+            
+            <div class="col-6 col-md-3 mb-4">
+                <h6 class="footer-title">HELP</h6>
+                <p class="footer-text">Our Client Advisors are available to assist you by phone at <a href="tel:+18668848866">+1.866.VUITTON</a>, or you may also <a href="#">chat with us</a>.</p>
+                <ul class="footer-links">
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Product Care</a></li>
+                    <li><a href="#">Stores</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-md-3 mb-4">
+                <h6 class="footer-title">SERVICES</h6>
+                <ul class="footer-links">
+                    <li><a href="#">Repairs</a></li>
+                    <li><a href="#">Personalization</a></li>
+                    <li><a href="#">Art of Gifting</a></li>
+                    <li><a href="#">Download our Apps</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-md-3 mb-4">
+                <h6 class="footer-title">ABOUT LOUIS VUITTON</h6>
+                <ul class="footer-links">
+                    <li><a href="#">Fashion Shows</a></li>
+                    <li><a href="#">Arts & Culture</a></li>
+                    <li><a href="#">La Maison</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Latest News</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Foundation Louis Vuitton</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-md-3 mb-4">
+                <h6 class="footer-title">EMAIL AND SMS SIGN-UP</h6>
+                <p class="footer-text">Subscribe for exclusive email and SMS updates and receive the latest news from Louis Vuitton, including new arrivals and exclusive collections.</p>
+                <h6 class="footer-title mt-4">Follow Us</h6>
+                </div>
+
+        </div>
+
+        <hr class="footer-divider">
+
+        <div class="row align-items-center py-3 footer-bottom">
+            
+            <div class="col-12 col-lg-6 d-flex align-items-center mb-3 mb-lg-0">
+                <span class="footer-small-text me-2">Ship to:</span>
+                <a href="#" class="country-link">
+                    <i class="fa-solid fa-flag-usa me-1"></i> United States of America
+                </a>
+            </div>
+
+            <div class="col-12 col-lg-6 d-flex flex-wrap justify-content-lg-end">
+                <ul class="footer-legal-links">
+                    <li><a href="#">Sitemap</a></li>
+                    <li><a href="#">Legal Notices</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">California Supply Chains Act</a></li>
+                    <li><a href="#"><span class="privacy-icon-placeholder"></span> Your Privacy Choices</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-12 text-center mt-3">
+                <p class="lv-logo-bottom">LOUIS VUITTON</p>
+            </div>
+        </div>
+
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('registrationForm');
+    const passwordInput = document.getElementById('password');
+    const passwordToggle = document.querySelector('.password-toggle');
+    const emailInput = document.getElementById('email');
+    const emailConfirmInput = document.getElementById('emailConfirm');
+
+    passwordToggle.addEventListener('click', function() {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        
+        const icon = this.querySelector('i');
+        if (type === 'text') {
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+        } else {
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        }
+    });
+
+    const googleSignInBtn = document.querySelector('.google-signin-btn');
+    googleSignInBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        console.log('Google Sign-In clicked');
+        alert('Google Sign-In functionality would be implemented here.');
+    });
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        let isValid = true;
+        const errors = [];
+
+        if (emailInput.value !== emailConfirmInput.value) {
+            isValid = false;
+            errors.push('Email addresses do not match.');
+            emailConfirmInput.style.borderColor = '#dc3545';
+        } else {
+            emailConfirmInput.style.borderColor = '#d1d1d1';
+        }
+
+        const requiredFields = form.querySelectorAll('[required]');
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                isValid = false;
+                field.style.borderColor = '#dc3545';
+            } else {
+                field.style.borderColor = '#d1d1d1';
+            }
+        });
+
+        if (passwordInput.value.length < 8) {
+            isValid = false;
+            errors.push('Password must be at least 8 characters long.');
+            passwordInput.style.borderColor = '#dc3545';
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailInput.value)) {
+            isValid = false;
+            errors.push('Please enter a valid email address.');
+            emailInput.style.borderColor = '#dc3545';
+        }
+
+        if (!isValid) {
+            if (errors.length > 0) {
+                alert('Please fix the following errors:\n\n' + errors.join('\n'));
+            } else {
+                alert('Please fill in all required fields.');
+            }
+            return false;
+        }
+
+        const formData = {
+            email: emailInput.value,
+            title: document.getElementById('title').value,
+            firstName: document.getElementById('firstName').value,
+            lastName: document.getElementById('lastName').value,
+            password: passwordInput.value,
+            phoneNumber: document.getElementById('countryCode').value + ' ' + document.getElementById('phoneNumber').value,
+            dateOfBirth: document.getElementById('dateOfBirth').value,
+            marketingConsent: document.getElementById('marketingConsent').checked,
+            preferences: {
+                marketingEmails: document.getElementById('marketingEmails').checked,
+                marketingTexts: document.getElementById('marketingTexts').checked,
+                targetedAdvertising: document.getElementById('targetedAdvertising').checked
+            }
+        };
+
+        console.log('Form submitted with data:', formData);
+        
+        alert('Account created successfully! You will receive an activation code by email.');
+        
+        return false;
+    });
+
+    const inputs = form.querySelectorAll('input, select');
+    inputs.forEach(input => {
+        input.addEventListener('blur', function() {
+            if (this.hasAttribute('required') && !this.value.trim()) {
+                this.style.borderColor = '#dc3545';
+            } else {
+                this.style.borderColor = '#d1d1d1';
+            }
+        });
+
+        input.addEventListener('input', function() {
+            if (this.style.borderColor === 'rgb(220, 53, 69)') {
+                this.style.borderColor = '#d1d1d1';
+            }
+        });
+    });
+
+    emailConfirmInput.addEventListener('input', function() {
+        if (emailInput.value && this.value) {
+            if (emailInput.value === this.value) {
+                this.style.borderColor = '#28a745';
+            } else {
+                this.style.borderColor = '#dc3545';
+            }
+        }
+    });
+
+    const phoneNumberInput = document.getElementById('phoneNumber');
+    phoneNumberInput.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        
+        if (value.length > 0) {
+            if (value.length <= 3) {
+                value = value;
+            } else if (value.length <= 6) {
+                value = value.slice(0, 3) + '-' + value.slice(3);
+            } else {
+                value = value.slice(0, 3) + '-' + value.slice(3, 6) + '-' + value.slice(6, 10);
+            }
+        }
+        
+        e.target.value = value;
+    });
+
+    console.log('Louis Vuitton Registration Form Loaded Successfully');
+});
+    </script>
+</body>
+</html>

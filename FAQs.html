@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Louis Vuitton UI Clone</title>
+    <style>
+    body {
+      background-color: #f8f8f8;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    .lv-card {
+      background-color: #fff;
+      max-width: 800px;
+      margin: 80px auto;
+      padding: 50px 40px;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .lv-card-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .lv-card-header h5 {
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0;
+      color: #000;
+    }
+
+    .lv-arrow {
+      font-size: 18px;
+      color: #000;
+      font-weight: 300;
+    }
+
+    /* Buttons */
+    .lv-btn-outline {
+      border: 1px solid #000;
+      background: transparent;
+      color: #000;
+      border-radius: 50px;
+      padding: 10px 40px;
+      margin: 5px;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .lv-btn-outline:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    .lv-btn-black {
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 40px;
+      margin: 5px;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .lv-btn-black:hover {
+      background: #333;
+    }
+
+    @media (max-width: 768px) {
+      .lv-card {
+        padding: 30px 20px;
+      }
+
+      .lv-card-header h5 {
+        font-size: 16px;
+      }
+
+      .lv-btn-outline,
+      .lv-btn-black {
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+  </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+<body>
+<header class="container-fluid py-4">
+        <div class="row">
+            <div class="col text-center">
+                <h1 class="fw-light">LOUIS VUITTON</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mb-5">
+        <div class="row justify-content-center mb-3">
+            <div class="col-12 col-lg-8">
+                <div class="input-group">
+                    <input type="search" class="form-control rounded-pill border border-dark py-2 custom-search-input" placeholder="Search for Vivienne Winter Holiday" aria-label="Search">
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8 text-center trending-searches">
+                
+                <a href="#" class="me-3" style="color: black; text-decoration: none;">Products (79)</a>
+               <a href="#" class="me-3 text-secondary text-decoration-none disabled" tabindex="-1" aria-disabled="true">Find a Store</a>
+<a href="#" class="me-3 text-secondary text-decoration-none disabled" tabindex="-1" aria-disabled="true">World of Louis Vuitton</a>
+
+
+                <a href="FAQs.html" class="me-3 text-dark text-decoration-none">FAQs (1)</a>
+
+                
+            </div>
+        </div>
+
+        <div class="lv-card">
+    <div class="lv-card-header">
+      
+      <span class="lv-arrow">&rsaquo;</span> <!-- HTML right arrow symbol -->
+    </div>
+    <div class="lv-card-buttons text-center">
+      <a href="Contact.html" class="lv-btn-outline">Contact Us</a>
+      <a href="Contact.html" class="lv-btn-black">Go to the FAQ</a>
+       
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </div>
+    </body>
+</html>

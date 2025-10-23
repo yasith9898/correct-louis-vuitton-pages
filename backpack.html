@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Louis Vuitton UI Clone</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/serch/style.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>/* Custom Styles for Louis Vuitton Product Grid UI */
+
+.product-card {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.product-image-wrapper {
+    /* The light grey background from the image */
+    background-color: #f7f7f7; 
+    position: relative;
+    padding: 1rem;
+    overflow: hidden;
+    /* Ensure the wrapper maintains a square or near-square aspect ratio */
+    aspect-ratio: 1 / 1; 
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Vertically center the image if needed, though aspect-ratio helps */
+    object-fit: contain; 
+}
+
+/* Icons (Heart and Quick View) in the corners */
+.card-actions {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-action-icon {
+    /* Small, discreet icon background */
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: #333;
+    transition: background-color 0.2s;
+}
+
+.card-action-icon:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+/* Product Details Text */
+.product-details {
+    padding: 0.5rem 0;
+    text-align: left; /* Align text left as seen in the image */
+}
+.product-details p {
+    margin-bottom: 0.2rem;
+}
+
+.customizable-badge {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #666;
+    font-weight: 500;
+}
+
+.product-name {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #111;
+}
+
+.product-price {
+    font-size: 0.95rem;
+    color: #333;
+    font-weight: 400;
+}
+
+/* Color Swatches */
+.color-swatch {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 4px;
+    cursor: pointer;
+    box-sizing: border-box; /* Include border in size calculation */
+}
+.color-swatch.active {
+    /* Style for the currently selected swatch */
+    border: 2px solid #333 !important; 
+}
+
+/* Responsive adjustment for small screens (Bootstrap handles the column structure) */
+@media (max-width: 576px) {
+    .product-details {
+        text-align: center; /* Center text for very small screens for better balance */
+    }
+}
+
+.disabled-link {
+    pointer-events: none;
+    color: #999 !important;
+    text-decoration: none;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+</style>
+</head>
+<body>
+<header class="container-fluid py-4">
+        <div class="row">
+            <div class="col text-center">
+                <h1 class="fw-light">LOUIS VUITTON</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mb-5">
+        <div class="row justify-content-center mb-3">
+            <div class="col-12 col-lg-8">
+                <div class="input-group">
+                    <input type="search" class="form-control rounded-pill border border-dark py-2 custom-search-input" placeholder="Search for Vivienne Winter Holiday" aria-label="Search">
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8 text-center trending-searches">
+                
+                <a href="#" class="me-3" style="color: black; text-decoration: none;">Products (79)</a>
+                <a href="#" class="me-3 disabled-link">Find a Store</a>
+                <a href="#" class="me-3 disabled-link">World of Louis Vuitton</a>
+
+                <a href="FAQs.html" class="me-3 text-dark text-decoration-none">FAQs (1)</a>
+
+                
+            </div>
+        </div>
+
+        
+    </div>
+    <div class="container-fluid py-4 px-3">
+    <div class="row g-4 product-grid">
+
+        <div class="col-6 col-md-3">
+            <a href="product.html" class="text-decoration-none text-dark"> 
+            <div class="product-card text-center">
+                <div class="product-image-wrapper">
+                    <img src="image/backpack1.avif" class="product-image" alt="Speedy B 25 Monogram">
+                    <div class="card-actions">
+                        <span class="card-action-icon quick-view-icon"><i class="fas fa-arrows-alt"></i></span>
+                        <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <p class="customizable-badge">CUSTOMIZABLE</p>
+                    <p class="product-name">Speedy Bandoulière 25</p>
+                    <p class="product-price">$1,940.00</p>
+                </div>
+            </div>
+            </a>
+        </div>
+
+        <div class="col-6 col-md-3">
+            <a href="product.html" class="text-decoration-none text-dark"> 
+            <div class="product-card text-center">
+                <div class="product-image-wrapper">
+                    <img src="image/backpack2.avif" class="product-image" alt="Speedy B 30 Monogram">
+                    <div class="card-actions">
+                        <span class="card-action-icon quick-view-icon"><i class="fas fa-arrows-alt"></i></span>
+                        <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <p class="customizable-badge">CUSTOMIZABLE</p>
+                    <p class="product-name">Speedy Bandoulière 30</p>
+                    <p class="product-price">$1,960.00</p>
+                </div>
+            </div>
+            </a>
+        </div>
+
+        <div class="col-6 col-md-3">
+            <a href="product.html" class="text-decoration-none text-dark"> 
+            <div class="product-card text-center">
+                <div class="product-image-wrapper">
+                    <img src="image/backpack3.avif" class="product-image" alt="Speedy B 20 Monogram">
+                    <div class="card-actions">
+                        <span class="card-action-icon quick-view-icon"><i class="fas fa-arrows-alt"></i></span>
+                        <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <p class="customizable-badge text-white user-select-none">CUSTOMIZABLE</p> 
+                    <p class="product-name">Speedy Bandoulière 20</p>
+                    <p class="product-price">$2,260.00</p>
+                    <div class="color-swatches mt-1">
+                        <span class="color-swatch" style="background-color: black; border: 1px solid #333;"></span>
+                        <span class="color-swatch" style="background-color: #D3C1B6;"></span>
+                    </div>
+                </div>
+            </div>
+            </a>
+        </div>
+
+        <div class="col-6 col-md-3">
+            <a href="product.html" class="text-decoration-none text-dark"> 
+            <div class="product-card text-center">
+                <div class="product-image-wrapper">
+                    <img src="image/backpack4.avif" class="product-image" alt="Speedy B 25 Damier Ebène">
+                    <div class="card-actions">
+                        <span class="card-action-icon quick-view-icon"><i class="fas fa-arrows-alt"></i></span>
+                        <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <p class="customizable-badge text-white user-select-none">CUSTOMIZABLE</p>
+                    <p class="product-name">Speedy Bandoulière 25</p>
+                    <p class="product-price">$1,940.00</p>
+                    <div class="color-swatches mt-1">
+                        <span class="color-swatch active" style="background-color: #6C5245; border: 2px solid #333;"></span>
+                        <span class="color-swatch" style="background-color: black; border: 1px solid #ccc;"></span>
+                    </div>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-6 col-md-3">
+            <a href="product.html" class="text-decoration-none text-dark"> 
+            <div class="product-card text-center">
+                <div class="product-image-wrapper">
+                    <img src="image/backpack5.avif" class="product-image" alt="Speedy B 25 Damier Ebène">
+                    <div class="card-actions">
+                        <span class="card-action-icon quick-view-icon"><i class="fas fa-arrows-alt"></i></span>
+                        <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <p class="customizable-badge text-white user-select-none">CUSTOMIZABLE</p>
+                    <p class="product-name">Speedy Bandoulière 25</p>
+                    <p class="product-price">$1,940.00</p>
+                    <div class="color-swatches mt-1">
+                        <span class="color-swatch active" style="background-color: #6C5245; border: 2px solid #333;"></span>
+                        <span class="color-swatch" style="background-color: black; border: 1px solid #ccc;"></span>
+                    </div>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-6 col-md-3">
+            <a href="product.html" class="text-decoration-none text-dark"> 
+            <div class="product-card text-center">
+                <div class="product-image-wrapper">
+                    <img src="image/backpack6.avif" class="product-image" alt="Speedy B 25 Damier Ebène">
+                    <div class="card-actions">
+                        <span class="card-action-icon quick-view-icon"><i class="fas fa-arrows-alt"></i></span>
+                        <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <p class="customizable-badge text-white user-select-none">CUSTOMIZABLE</p>
+                    <p class="product-name">Speedy Bandoulière 25</p>
+                    <p class="product-price">$1,940.00</p>
+                    <div class="color-swatches mt-1">
+                        <span class="color-swatch active" style="background-color: #6C5245; border: 2px solid #333;"></span>
+                        <span class="color-swatch" style="background-color: black; border: 1px solid #ccc;"></span>
+                    </div>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-6 col-md-3">
+            <a href="product.html" class="text-decoration-none text-dark"> 
+            <div class="product-card text-center">
+                <div class="product-image-wrapper">
+                    <img src="image/backpack6.avif" class="product-image" alt="Speedy B 25 Damier Ebène">
+                    <div class="card-actions">
+                        <span class="card-action-icon quick-view-icon"><i class="fas fa-arrows-alt"></i></span>
+                        <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <p class="customizable-badge text-white user-select-none">CUSTOMIZABLE</p>
+                    <p class="product-name">Speedy Bandoulière 25</p>
+                    <p class="product-price">$1,940.00</p>
+                    <div class="color-swatches mt-1">
+                        <span class="color-swatch active" style="background-color: #6C5245; border: 2px solid #333;"></span>
+                        <span class="color-swatch" style="background-color: black; border: 1px solid #ccc;"></span>
+                    </div>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-6 col-md-3">
+            <a href="product.html" class="text-decoration-none text-dark"> 
+            <div class="product-card text-center">
+                <div class="product-image-wrapper">
+                    <img src="image/backpack8.avif" class="product-image" alt="Speedy B 25 Damier Ebène">
+                    <div class="card-actions">
+                        <span class="card-action-icon quick-view-icon"><i class="fas fa-arrows-alt"></i></span>
+                        <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <p class="customizable-badge text-white user-select-none">CUSTOMIZABLE</p>
+                    <p class="product-name">Speedy Bandoulière 25</p>
+                    <p class="product-price">$1,940.00</p>
+                    <div class="color-swatches mt-1">
+                        <span class="color-swatch active" style="background-color: #6C5245; border: 2px solid #333;"></span>
+                        <span class="color-swatch" style="background-color: black; border: 1px solid #ccc;"></span>
+                    </div>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-6 col-md-3">
+            <a href="product.html" class="text-decoration-none text-dark"> 
+            <div class="product-card text-center">
+                <div class="product-image-wrapper">
+                    <img src="image/backpack9.avif" class="product-image" alt="Speedy B 25 Damier Ebène">
+                    <div class="card-actions">
+                        <span class="card-action-icon quick-view-icon"><i class="fas fa-arrows-alt"></i></span>
+                        <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <p class="customizable-badge text-white user-select-none">CUSTOMIZABLE</p>
+                    <p class="product-name">Speedy Bandoulière 25</p>
+                    <p class="product-price">$1,940.00</p>
+                    <div class="color-swatches mt-1">
+                        <span class="color-swatch active" style="background-color: #6C5245; border: 2px solid #333;"></span>
+                        <span class="color-swatch" style="background-color: black; border: 1px solid #ccc;"></span>
+                    </div>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-6 col-md-3">
+            <a href="product.html" class="text-decoration-none text-dark"> 
+            <div class="product-card text-center">
+                <div class="product-image-wrapper">
+                    <img src="image/backpack1.avif" class="product-image" alt="Speedy B 25 Damier Ebène">
+                    <div class="card-actions">
+                        <span class="card-action-icon quick-view-icon"><i class="fas fa-arrows-alt"></i></span>
+                        <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <p class="customizable-badge text-white user-select-none">CUSTOMIZABLE</p>
+                    <p class="product-name">Speedy Bandoulière 25</p>
+                    <p class="product-price">$1,940.00</p>
+                    <div class="color-swatches mt-1">
+                        <span class="color-swatch active" style="background-color: #6C5245; border: 2px solid #333;"></span>
+                        <span class="color-swatch" style="background-color: black; border: 1px solid #ccc;"></span>
+                    </div>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div class="col-6 col-md-3">
+            <a href="product.html" class="text-decoration-none text-dark"> 
+            <div class="product-card text-center">
+                <div class="product-image-wrapper">
+                    <img src="image/backpack2.avif" class="product-image" alt="Speedy B 25 Damier Ebène">
+                    <div class="card-actions">
+                        <span class="card-action-icon quick-view-icon"><i class="fas fa-arrows-alt"></i></span>
+                        <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <p class="customizable-badge text-white user-select-none">CUSTOMIZABLE</p>
+                    <p class="product-name">Speedy Bandoulière 25</p>
+                    <p class="product-price">$1,940.00</p>
+                    <div class="color-swatches mt-1">
+                        <span class="color-swatch active" style="background-color: #6C5245; border: 2px solid #333;"></span>
+                        <span class="color-swatch" style="background-color: black; border: 1px solid #ccc;"></span>
+                    </div>
+                </div>
+            </div>
+            </a>
+        </div>
+
+        
+
+        </div>
+   
+
+</body>
+</html>

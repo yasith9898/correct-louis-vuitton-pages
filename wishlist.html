@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Louis Vuitton Wishlist Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/*
+ * HEADER STYLES (Retained from previous steps)
+ */
+.lv-contact-us {
+  color: black !important;
+  text-decoration: none;
+}
+.lv-contact-us:hover {
+  color: #000000; /* stays black on hover */
+}
+
+
+.lv-header {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 1rem 0;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+}
+.lv-logo {
+    font-size: 1.8rem;
+    font-weight: 900; 
+    letter-spacing: 0.1rem;
+    color: black;
+    text-decoration: none;
+}
+.lv-icon-link {
+    color: black;
+    text-decoration: none;
+    margin-left: 1rem;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+.lv-icon-link span {
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+}
+.lv-contact-us {
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-right: 1rem;
+    white-space: nowrap;
+}
+.lv-badge {
+    font-size: 0.7rem;
+    position: absolute;
+    top: -0.2rem;
+    right: -0.5rem;
+}
+.lv-bag-icon-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/*
+ * MAIN CONTENT STYLES (Empty State & Recently Viewed)
+ */
+.empty-state-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+.empty-state-content {
+    text-align: center;
+    max-width: 450px; 
+    margin: 0 auto;
+}
+.title-text {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+}
+.subtitle-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+.inspiration-text {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+.sign-in-button {
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+    padding: 10px 40px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+.sign-in-button:hover {
+    background-color: #333;
+    color: white;
+}
+.recently-viewed-title {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    margin-left: 15px; 
+}
+.product-card {
+    border: none;
+    padding: 0;
+    background-color: transparent;
+}
+.product-card-body {
+    position: relative;
+    padding: 0;
+    background-color: #f5f5f5; 
+}
+.product-card-info {
+    padding-top: 5px;
+}
+.product-name, .product-price {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+.heart-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: black;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/*
+ * FOOTER STYLES
+ */
+.lv-footer {
+    /* Base styling for the footer area */
+    background-color: white;
+    color: #333; /* Default text color */
+    font-size: 0.9rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* Style for the 4-column link section */
+.footer-top-links {
+    font-size: 0.85rem;
+}
+
+/* Column Header Styling */
+.footer-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+/* General text within columns */
+.footer-text {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+/* List of links */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+/* Link color and hover effect */
+.footer-links a, .footer-text a {
+    color: #333;
+    text-decoration: none;
+}
+
+.footer-links a:hover, .footer-text a:hover {
+    text-decoration: underline;
+}
+
+/* Divider line between link section and legal section */
+.footer-divider {
+    border: 0;
+    border-top: 1px solid #e0e0e0;
+    margin: 1rem 0;
+}
+
+/* Bottom Section Styles (Ship To, Legal, Copyright) */
+.footer-bottom {
+    font-size: 0.75rem; /* Smaller font size for legal links */
+}
+
+/* Country selector link */
+.country-link {
+    color: #333;
+    text-decoration: underline;
+    white-space: nowrap;
+}
+
+/* Legal links (Sitemap, Privacy, etc.) */
+.footer-legal-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 15px; /* Horizontal spacing between links */
+    margin: 0;
+}
+
+.footer-legal-links a {
+    color: #333;
+    text-decoration: none;
+}
+
+.footer-legal-links a:hover {
+    text-decoration: underline;
+}
+
+/* Louis Vuitton logo at the very bottom */
+.lv-logo-bottom {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    color: black;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem; /* Small margin at the bottom of the page */
+}
+
+/* Placeholder for the 'Your Privacy Choices' icon (replace with image or specialized icon if available) */
+.privacy-icon-placeholder {
+    /* You would typically use an image or an icon font for this part */
+    display: inline-block;
+    width: 16px;
+    height: 10px;
+    background-color: transparent; /* Placeholder style */
+    border: 1px solid #333;
+    vertical-align: middle;
+    margin-right: 3px;
+    border-radius: 2px;
+}
+/*
+ * CHAT BUTTON STYLES (Retained from previous steps)
+ */
+.chat-floating-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 8px 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    z-index: 1030;
+    display: flex;
+    align-items: center;
+}
+.chat-floating-btn i {
+    margin-right: 5px;
+}
+.chat-floating-btn .fa-chevron-up {
+    margin-left: 5px;
+    margin-right: 0;
+}
+
+    </style>
+</head>
+<body>
+
+<header class="lv-header">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            
+            <div class="col-4 d-flex justify-content-start">
+                <a href="#" class="lv-icon-link" id="menuToggle">
+                    <i class="fa-solid fa-bars"></i>
+                    <span>Menu</span>
+                </a>
+                <a href="search.html" class="lv-icon-link d-none d-sm-flex">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Search</span>
+                </a>
+            </div>
+
+            <div class="col-4 text-center">
+                <a href="#" class="lv-logo">LOUIS VUITTON</a>
+            </div>
+
+            <div class="col-4 d-flex justify-content-end align-items-center">
+                <a href="Contact.html" class="lv-contact-us d-none d-lg-block" style="color: black; text-decoration: none;">Contact Us</a>
+
+                <a href="wishlist.html" class="lv-icon-link d-none d-md-flex">
+                    <i class="fa-regular fa-heart"></i>
+                </a>
+                <a href="index.html" class="lv-icon-link">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+                <a href="#" class="lv-icon-link">
+                    <div class="lv-bag-icon-wrapper">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="lv-badge">0</span> 
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="container-fluid">
+    <div class="row">
+        
+        <div class="col-12 empty-state-section">
+            <div class="empty-state-content">
+                <h1 class="title-text">Your wishlist is empty.</h1>
+                <p class="subtitle-text">
+                    Save products and looks to your wishlist and share them.
+                </p>
+                <p class="inspiration-text">
+                    Need inspiration?
+                </p>
+                <a href="Singin.html" class="sign-in-button" role="button">
+                    Sign In
+                </a>
+            </div>
+        </div>
+        
+        <div class="col-12 mt-5">
+            <h2 class="recently-viewed-title">Recently Viewed</h2>
+            
+            <div class="col-6 col-md-4 col-lg-3 product-card">
+    <div class="card border-0 bg-light-gray-custom">
+        <div class="product-image-container position-relative">
+            <!-- Wrap image inside an anchor tag -->
+            <a href="product.html">
+                <img src="image/speedyProduct2.webp" class="card-img-top custom-image" alt="Speedy Soft 30 Teddy">
+            </a>
+            <button class="btn btn-sm position-absolute top-0 end-0 m-2 custom-heart-btn" aria-label="Add to wishlist">
+                <i class="bi bi-heart"></i>
+            </button>
+        </div>
+        <div class="card-body px-0 pt-3 pb-4">
+            <p class="card-text mb-1 text-uppercase fw-bold small">New</p>
+            <p class="card-text mb-0">Speedy Soft 30 Teddy</p>
+            <p class="card-text fw-bold">$4,200.00</p>
+        </div>
+    </div>
+</div>
+        </div>
+    </div>
+</main>
+
+<footer class="lv-footer mt-5 pt-5">
+    <div class="container">
+        
+        <div class="row pb-5 footer-top-links">
+            
+            <div class="col-6 col-md-3 mb-4">
+                <h6 class="footer-title">HELP</h6>
+                <p class="footer-text">Our Client Advisors are available to assist you by phone at <a href="tel:+18668848866">+1.866.VUITTON</a>, or you may also <a href="#">chat with us</a>.</p>
+                <ul class="footer-links">
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Product Care</a></li>
+                    <li><a href="#">Stores</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-md-3 mb-4">
+                <h6 class="footer-title">SERVICES</h6>
+                <ul class="footer-links">
+                    <li><a href="#">Repairs</a></li>
+                    <li><a href="#">Personalization</a></li>
+                    <li><a href="#">Art of Gifting</a></li>
+                    <li><a href="#">Download our Apps</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-md-3 mb-4">
+                <h6 class="footer-title">ABOUT LOUIS VUITTON</h6>
+                <ul class="footer-links">
+                    <li><a href="#">Fashion Shows</a></li>
+                    <li><a href="#">Arts & Culture</a></li>
+                    <li><a href="#">La Maison</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Latest News</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Foundation Louis Vuitton</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-md-3 mb-4">
+                <h6 class="footer-title">EMAIL AND SMS SIGN-UP</h6>
+                <p class="footer-text">Subscribe for exclusive email and SMS updates and receive the latest news from Louis Vuitton, including new arrivals and exclusive collections.</p>
+                <h6 class="footer-title mt-4">Follow Us</h6>
+                </div>
+
+        </div>
+
+        <hr class="footer-divider">
+
+        <div class="row align-items-center py-3 footer-bottom">
+            
+            <div class="col-12 col-lg-6 d-flex align-items-center mb-3 mb-lg-0">
+                <span class="footer-small-text me-2">Ship to:</span>
+                <a href="#" class="country-link">
+                    <i class="fa-solid fa-flag-usa me-1"></i> United States of America
+                </a>
+            </div>
+
+            <div class="col-12 col-lg-6 d-flex flex-wrap justify-content-lg-end">
+                <ul class="footer-legal-links">
+                    <li><a href="#">Sitemap</a></li>
+                    <li><a href="#">Legal Notices</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">California Supply Chains Act</a></li>
+                    <li><a href="#"><span class="privacy-icon-placeholder"></span> Your Privacy Choices</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-12 text-center mt-3">
+                <p class="lv-logo-bottom">LOUIS VUITTON</p>
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasMenuLabel">Navigation</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <p>Main menu links would be inserted here...</p>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+    
+    // 1. Menu Toggle Logic (Bootstrap Offcanvas)
+    const menuToggle = document.getElementById('menuToggle');
+    const offcanvasMenu = document.getElementById('offcanvasMenu');
+
+    if (menuToggle && offcanvasMenu) {
+        // Initializes and shows the Bootstrap Offcanvas sidebar when the 'Menu' link is clicked
+        menuToggle.addEventListener('click', function(e) {
+            e.preventDefault(); 
+            const menuOffcanvas = new bootstrap.Offcanvas(offcanvasMenu);
+            menuOffcanvas.show();
+        });
+    }
+
+    // 2. Chat Button Logic
+    const chatButton = document.getElementById('chatButton');
+    
+    if (chatButton) {
+        // Provides a simple action for the floating chat button
+        chatButton.addEventListener('click', function() {
+            console.log("Chat button clicked. A chat widget would open here.");
+        });
+    }
+
+    // 3. Image Placeholder (Informational)
+    const productImg = document.querySelector('.product-card img');
+    
+    if (productImg && productImg.src === 'product-bag.jpg') {
+        console.log("Image Note: The product card is using 'product-bag.jpg'. Ensure the image file is in the same directory or replace the src attribute with a valid URL.");
+    }
+});
+
+</script>
+
+</body>
+</html>

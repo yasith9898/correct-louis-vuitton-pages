@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Louis Vuitton UI Clone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        /* Custom CSS to match the Louis Vuitton UI look */
+
+body {
+    /* Set a neutral background if needed */
+    background-color: #ffffff;
+}
+
+/* Customizing the header font weight */
+header h1 {
+    letter-spacing: 5px; /* Added slight spacing for LV feel */
+    font-size: 1.8rem;
+}
+
+/* Custom search bar styling */
+.custom-search-input {
+    /* Remove default Bootstrap focus shadow */
+    box-shadow: none !important; 
+    border-radius: 50px !important; /* Make it more rounded */
+    padding-left: 20px;
+}
+
+/* Trending Searches links */
+.trending-searches a {
+    color: #000000 !important;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+.trending-searches a:hover {
+    text-decoration: underline;
+}
+
+/* Custom light gray background for product cards */
+.bg-light-gray-custom {
+    background-color: #f7f7f7 !important; /* A light gray tone */
+}
+
+/* Styling for the heart button on the product image */
+.custom-heart-btn {
+    background: transparent;
+    border: none;
+    color: #000000; /* Black heart icon */
+    font-size: 1.25rem;
+    opacity: 0.6; /* Slight transparency for a lighter look */
+}
+
+.custom-heart-btn:hover {
+    opacity: 1;
+}
+
+/* Product image container to ensure proper sizing if needed */
+.product-image-container {
+    overflow: hidden;
+    padding: 10px; /* Optional padding inside the gray box */
+}
+
+/* Ensure the product image fits within the gray background */
+.custom-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Adjust card body to match minimal padding in the image */
+.card-body {
+    padding-left: 0;
+    padding-right: 0;
+}
+    </style>
+</head>
+<body>
+
+    <header class="container-fluid py-4">
+        <div class="row">
+            <div class="col text-center">
+                <h1 class="fw-light">LOUIS VUITTON</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mb-5">
+        <div class="row justify-content-center mb-3">
+            <div class="col-12 col-lg-8">
+                <div class="input-group">
+                    <input type="search" class="form-control rounded-pill border border-dark py-2 custom-search-input" placeholder="Search for Vivienne Winter Holiday" aria-label="Search">
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8 text-center trending-searches">
+                <small class="text-muted text-uppercase me-2">Trending Searches</small>
+                <a href="speedy.html" class="me-3">speedy</a>
+                <a href="wallet.html" class="me-3">wallet</a>
+                <a href="neverfull.html" class="me-3">neverfull</a>
+                <a href="pochette.html" class="me-3">pochette</a>
+                <a href="backpack.html" class="me-3">backpack</a>
+            </div>
+        </div>
+    </div>
+
+    <div class=" mb-5">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h4>New Bags</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6 col-md-4 col-lg-3 product-card">
+    <div class="card border-0 bg-light-gray-custom">
+        <div class="product-image-container position-relative">
+            <!-- Wrap image inside an anchor tag -->
+            <a href="product.html">
+                <img src="image/speedyProduct3.webp" class="card-img-top custom-image" alt="Speedy Soft 30 Teddy">
+            </a>
+            <button class="btn btn-sm position-absolute top-0 end-0 m-2 custom-heart-btn" aria-label="Add to wishlist">
+                <i class="bi bi-heart"></i>
+            </button>
+        </div>
+        <div class="card-body px-0 pt-3 pb-4">
+            <p class="card-text mb-1 text-uppercase fw-bold small">New</p>
+            <p class="card-text mb-0">Speedy Soft 30 Teddy</p>
+            <p class="card-text fw-bold">$4,200.00</p>
+        </div>
+    </div>
+</div>
+
+
+        <div class="col-6 col-md-4 col-lg-3 product-card">
+    <div class="card border-0 bg-light-gray-custom">
+        <div class="product-image-container position-relative">
+            <!-- Wrap image inside an anchor tag -->
+            <a href="product.html">
+                <img src="image/speedyProduct9.webp" class="card-img-top custom-image" alt="Speedy Soft 30 Teddy">
+            </a>
+            <button class="btn btn-sm position-absolute top-0 end-0 m-2 custom-heart-btn" aria-label="Add to wishlist">
+                <i class="bi bi-heart"></i>
+            </button>
+        </div>
+        <div class="card-body px-0 pt-3 pb-4">
+            <p class="card-text mb-1 text-uppercase fw-bold small">New</p>
+            <p class="card-text mb-0">Speedy Soft 30 Teddy</p>
+            <p class="card-text fw-bold">$4,200.00</p>
+        </div>
+    </div>
+</div>
+        </div>
+</div>
+
+
+<div class="">
+    <div class="row mb-4">
+        <div class="col-12">
+            <h4>Trending Now</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6 col-md-4 col-lg-3 product-card">
+    <div class="card border-0 bg-light-gray-custom">
+        <div class="product-image-container position-relative">
+            <!-- Wrap image inside an anchor tag -->
+            <a href="product.html">
+                <img src="image/product5.avif" class="card-img-top custom-image" alt="Speedy Soft 30 Teddy">
+            </a>
+            <button class="btn btn-sm position-absolute top-0 end-0 m-2 custom-heart-btn" aria-label="Add to wishlist">
+                <i class="bi bi-heart"></i>
+            </button>
+        </div>
+        <div class="card-body px-0 pt-3 pb-4">
+            <p class="card-text mb-1 text-uppercase fw-bold small">New</p>
+            <p class="card-text mb-0">Speedy Soft 30 Teddy</p>
+            <p class="card-text fw-bold">$4,200.00</p>
+        </div>
+    </div>
+</div>
+        <div class="col-6 col-md-4 col-lg-3 product-card">
+    <div class="card border-0 bg-light-gray-custom">
+        <div class="product-image-container position-relative">
+            <!-- Wrap image inside an anchor tag -->
+            <a href="product.html">
+                <img src="image/product7.avif" class="card-img-top custom-image" alt="Speedy Soft 30 Teddy">
+            </a>
+            <button class="btn btn-sm position-absolute top-0 end-0 m-2 custom-heart-btn" aria-label="Add to wishlist">
+                <i class="bi bi-heart"></i>
+            </button>
+        </div>
+        <div class="card-body px-0 pt-3 pb-4">
+            <p class="card-text mb-1 text-uppercase fw-bold small">New</p>
+            <p class="card-text mb-0">Speedy Soft 30 Teddy</p>
+            <p class="card-text fw-bold">$4,200.00</p>
+        </div>
+    </div>
+</div>
+        
+        <div class="col-6 col-md-4 col-lg-3 product-card">
+    <div class="card border-0 bg-light-gray-custom">
+        <div class="product-image-container position-relative">
+            <!-- Wrap image inside an anchor tag -->
+            <a href="product.html">
+                <img src="image/product8.avif" class="card-img-top custom-image" alt="Speedy Soft 30 Teddy">
+            </a>
+            <button class="btn btn-sm position-absolute top-0 end-0 m-2 custom-heart-btn" aria-label="Add to wishlist">
+                <i class="bi bi-heart"></i>
+            </button>
+        </div>
+        <div class="card-body px-0 pt-3 pb-4">
+            <p class="card-text mb-1 text-uppercase fw-bold small">New</p>
+            <p class="card-text mb-0">Speedy Soft 30 Teddy</p>
+            <p class="card-text fw-bold">$4,200.00</p>
+        </div>
+    </div>
+</div>
+        
+        <div class="col-6 col-md-4 col-lg-3 product-card">
+    <div class="card border-0 bg-light-gray-custom">
+        <div class="product-image-container position-relative">
+            <!-- Wrap image inside an anchor tag -->
+            <a href="product.html">
+                <img src="image/speedyProduct2.webp" class="card-img-top custom-image" alt="Speedy Soft 30 Teddy">
+            </a>
+            <button class="btn btn-sm position-absolute top-0 end-0 m-2 custom-heart-btn" aria-label="Add to wishlist">
+                <i class="bi bi-heart"></i>
+            </button>
+        </div>
+        <div class="card-body px-0 pt-3 pb-4">
+            <p class="card-text mb-1 text-uppercase fw-bold small">New</p>
+            <p class="card-text mb-0">Speedy Soft 30 Teddy</p>
+            <p class="card-text fw-bold">$4,200.00</p>
+        </div>
+    </div>
+</div>
+        
+      
+        </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
