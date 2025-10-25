@@ -6,400 +6,736 @@
     <title>Louis Vuitton UI Clone</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/serch/style.css">
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <link rel="stylesheet" href="/serch/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <style>/* Custom Styles for Louis Vuitton Product Grid UI */
 
-.product-card {
-    border: none;
-    cursor: pointer;
-    background-color: transparent;
-}
+    <style>
+        /* Custom Styles for Louis Vuitton Product Grid UI */
 
-.product-image-wrapper {
-    /* The light grey background from the image */
-    background-color: #f7f7f7; 
-    position: relative;
-    padding: 1rem;
-    overflow: hidden;
-    /* Ensure the wrapper maintains a square or near-square aspect ratio */
-    aspect-ratio: 1 / 1; 
-}
+        .product-card {
+            border: none;
+            cursor: pointer;
+            background-color: transparent;
+        }
 
-.product-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    /* Vertically center the image if needed, though aspect-ratio helps */
-    object-fit: contain; 
-}
+        .product-image-wrapper {
+            /* The light grey background from the image */
+            background-color: #f7f7f7; 
+            position: relative;
+            padding: 1rem;
+            overflow: hidden;
+            /* Ensure the wrapper maintains a square or near-square aspect ratio */
+            aspect-ratio: 1 / 1; 
+        }
 
-/* Icons (Heart and Quick View) in the corners */
-.card-actions {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    display: flex;
-    justify-content: space-between;
-}
+        .product-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            /* Vertically center the image if needed, though aspect-ratio helps */
+            object-fit: contain; 
+        }
 
-.card-action-icon {
-    /* Small, discreet icon background */
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    color: #333;
-    transition: background-color 0.2s;
-}
+        /* Icons (Heart and Quick View) in the corners */
+        .card-actions {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            display: flex;
+            justify-content: space-between;
+            z-index: 5; /* Ensure icons are above images */
+        }
 
-.card-action-icon:hover {
-    background: rgba(255, 255, 255, 1);
-}
+        .card-action-icon {
+            /* Small, discreet icon background */
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #333;
+            transition: background-color 0.2s;
+        }
 
-/* Product Details Text */
-.product-details {
-    padding: 0.5rem 0;
-    text-align: left; /* Align text left as seen in the image */
-}
-.product-details p {
-    margin-bottom: 0.2rem;
-}
+        .card-action-icon:hover {
+            background: rgba(255, 255, 255, 1);
+        }
 
-.customizable-badge {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    color: #666;
-    font-weight: 500;
-}
+        /* Product Details Text */
+        .product-details {
+            padding: 0.5rem 0;
+            text-align: left; /* Align text left as seen in the image */
+        }
+        .product-details p {
+            margin-bottom: 0.2rem;
+        }
 
-.product-name {
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.2;
-    color: #111;
-}
+        .customizable-badge {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: #666;
+            font-weight: 500;
+        }
 
-.product-price {
-    font-size: 0.95rem;
-    color: #333;
-    font-weight: 400;
-}
+        .product-name {
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.2;
+            color: #111;
+        }
 
-/* Color Swatches */
-.color-swatch {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    margin-right: 4px;
-    cursor: pointer;
-    box-sizing: border-box; /* Include border in size calculation */
-}
-.color-swatch.active {
-    /* Style for the currently selected swatch */
-    border: 2px solid #333 !important; 
-}
+        .product-price {
+            font-size: 0.95rem;
+            color: #333;
+            font-weight: 400;
+        }
 
-/* Responsive adjustment for small screens (Bootstrap handles the column structure) */
-@media (max-width: 576px) {
-    .product-details {
-        text-align: center; /* Center text for very small screens for better balance */
-    }
-}
+        /* Color Swatches */
+        .color-swatch {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 4px;
+            cursor: pointer;
+            box-sizing: border-box; /* Include border in size calculation */
+            border: 1px solid #ccc; /* Default subtle border for all swatches */
+        }
+        .color-swatch.active {
+            /* Style for the currently selected swatch */
+            border: 2px solid #333 !important; 
+        }
 
-.disabled-link {
-    pointer-events: none;
-    color: #999 !important;
-    text-decoration: none;
-    cursor: not-allowed;
-    opacity: 0.6;
-}
-</style>
+        /* Active Search Category Underline */
+        .active-search-category {
+            text-decoration: none !important; 
+            position: relative;
+            /* Remove padding from nav-link to control line width */
+            padding-bottom: 5px !important; 
+        }
+
+        .active-search-category::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background-color: black;
+        }
+        
+        /* Disabled Link for Categories */
+        .disabled-link {
+            pointer-events: none;
+            color: #999 !important;
+            text-decoration: none;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+        
+        /* Offcanvas Filter Styling Adjustments */
+        .offcanvas-body {
+            /* Enable scrolling only within the body, not the header/footer */
+            overflow-y: auto; 
+        }
+        .accordion-button:not(.collapsed)::after {
+            /* Changes chevron direction when open */
+            transform: rotate(180deg);
+        }
+        .accordion-button::after {
+            /* Ensures chevron is always visible and black */
+            color: black !important;
+        }
+        .accordion-button:focus {
+            box-shadow: none; /* Removes blue outline on focus */
+        }
+
+    </style>
 </head>
 <body>
 <header class="container-fluid py-4">
-        <div class="row">
-            <div class="col text-center">
-                <h1 class="fw-light">LOUIS VUITTON</h1>
-            </div>
+    <div class="row">
+        <div class="col text-center">
+            <h1 class="fw-light">LOUIS VUITTON</h1>
         </div>
-    </header>
-
-    <div class="container mb-5">
-        <div class="row justify-content-center mb-3">
-            <div class="col-12 col-lg-8">
-                <div class="input-group">
-                    <input type="search" class="form-control rounded-pill border border-dark py-2 custom-search-input" placeholder="Search for Vivienne Winter Holiday" aria-label="Search">
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-8 text-center trending-searches">
-                
-                <a href="#" class="me-3" style="color: black; text-decoration: none;">Products (79)</a>
-                <a href="#" class="me-3 disabled-link">Find a Store</a>
-                <a href="#" class="me-3 disabled-link">World of Louis Vuitton</a>
-
-                <a href="FAQs.html" class="me-3 text-dark text-decoration-none">FAQs (1)</a>
-
-                
-            </div>
-        </div>
-
-        
     </div>
-    <div class="container-fluid py-4 px-3">
+</header>
+
+<div class="mb-5">
+    <div class="row justify-content-center mb-3">
+        <div class="col-12 col-lg-8">
+            <div class="input-group">
+                <input type="search" class="form-control rounded-pill border border-dark py-2 custom-search-input" 
+                       placeholder="Search for Vivienne Winter Holiday" aria-label="Search" 
+                       style="height: 40px; margin-top: 10px;">
+            </div>
+        </div>
+    </div>
+    
+    <div class="row justify-content-center align-items-center" style="border-bottom: 1px solid #ccc; padding-bottom: 5px;">
+        <div class="col-12 col-lg-8 d-flex justify-content-between align-items-center">
+            
+            <div class="d-flex align-items-center">
+                <p class="mb-0 me-4" style="font-size: 14px; color: #555;">81 Search Results</p>
+                
+                <nav class="nav">
+                    <a href="#" class="nav-link text-dark active-search-category me-4" style="font-weight: bold; padding-left: 0;">Products (80)</a>
+                    <a href="#" class="nav-link text-dark disabled-link me-4">Find a Store</a>
+                    <a href="#" class="nav-link text-dark disabled-link me-4">World of Louis Vuitton</a>
+                    <a href="FAQs.html" class="nav-link text-dark me-4" style="padding-right: 0;">FAQs (1)</a>
+                </nav>
+            </div>
+            
+            <button class="btn btn-outline-dark rounded-pill" 
+                type="button" 
+                data-bs-toggle="offcanvas" 
+                data-bs-target="#filterOffcanvas" 
+                aria-controls="filterOffcanvas"
+                style="border-radius: 20px; padding: 5px 15px; border-width: 1px; font-size: 14px; margin-left: auto;">
+                Filter <i class="fas fa-filter" style="margin-left: 5px;"></i>
+            </button>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-4 px-3">
     <div class="row g-4 product-grid">
 
         <div class="col-6 col-md-3">
-            <a href="product.html" class="text-decoration-none text-dark"> 
             <div class="product-card text-center">
-                <div class="product-image-wrapper">
-                    <img src="image/backpack1.avif" class="product-image" alt="Speedy B 25 Monogram">
+                <div id="speedyCarousel" class="carousel slide product-image-wrapper" data-bs-ride="carousel" data-bs-interval="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="image/backpack1.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Front">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack2.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Side">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack3.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Interior">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack4.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - On Model">
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#speedyCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#speedyCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                    
                     <div class="card-actions">
-                        <span class="card-action-icon quick-view-icon"><i class="fas fa-arrows-alt"></i></span>
+                        <span class="card-action-icon edit-icon"><i class="fas fa-edit"></i></span> 
                         <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
                     </div>
                 </div>
-                <div class="product-details">
-                    <p class="customizable-badge">CUSTOMIZABLE</p>
-                    <p class="product-name">Speedy Bandoulière 25</p>
-                    <p class="product-price">$1,940.00</p>
-                </div>
+                <a href="product.html" class="text-decoration-none text-dark d-block"> 
+                    <div class="product-details">
+                        <p class="customizable-badge">CUSTOMIZABLE</p>
+                        <p class="product-name">Speedy Bandoulière 30</p>
+                        <p class="product-price">$1,980.00</p>
+                    </div>
+                </a>
             </div>
-            </a>
+        </div>
+
+
+
+         <div class="col-6 col-md-3">
+            <div class="product-card text-center">
+                <div id="speedyCarousel" class="carousel slide product-image-wrapper" data-bs-ride="carousel" data-bs-interval="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="image/backpack1.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Front">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack2.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Side">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack3.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Interior">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack4.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - On Model">
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#speedyCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#speedyCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                    
+                    <div class="card-actions">
+                        <span class="card-action-icon edit-icon"><i class="fas fa-edit"></i></span> 
+                        <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
+                    </div>
+                </div>
+                <a href="product.html" class="text-decoration-none text-dark d-block"> 
+                    <div class="product-details">
+                        <p class="customizable-badge">CUSTOMIZABLE</p>
+                        <p class="product-name">Speedy Bandoulière 30</p>
+                        <p class="product-price">$1,980.00</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+         <div class="col-6 col-md-3">
+            <div class="product-card text-center">
+                <div id="speedyCarousel" class="carousel slide product-image-wrapper" data-bs-ride="carousel" data-bs-interval="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="image/backpack1.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Front">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack2.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Side">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack3.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Interior">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack4.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - On Model">
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#speedyCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#speedyCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                    
+                    <div class="card-actions">
+                        <span class="card-action-icon edit-icon"><i class="fas fa-edit"></i></span> 
+                        <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
+                    </div>
+                </div>
+                <a href="product.html" class="text-decoration-none text-dark d-block"> 
+                    <div class="product-details">
+                        <p class="customizable-badge">CUSTOMIZABLE</p>
+                        <p class="product-name">Speedy Bandoulière 30</p>
+                        <p class="product-price">$1,980.00</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+         <div class="col-6 col-md-3">
+            <div class="product-card text-center">
+                <div id="speedyCarousel" class="carousel slide product-image-wrapper" data-bs-ride="carousel" data-bs-interval="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="image/backpack1.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Front">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack2.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Side">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack3.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Interior">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack4.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - On Model">
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#speedyCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#speedyCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                    
+                    <div class="card-actions">
+                        <span class="card-action-icon edit-icon"><i class="fas fa-edit"></i></span> 
+                        <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
+                    </div>
+                </div>
+                <a href="product.html" class="text-decoration-none text-dark d-block"> 
+                    <div class="product-details">
+                        <p class="customizable-badge">CUSTOMIZABLE</p>
+                        <p class="product-name">Speedy Bandoulière 30</p>
+                        <p class="product-price">$1,980.00</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="product-card text-center">
+                <div id="speedyCarousel" class="carousel slide product-image-wrapper" data-bs-ride="carousel" data-bs-interval="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="image/backpack1.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Front">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack2.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Side">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack3.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Interior">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack4.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - On Model">
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#speedyCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#speedyCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                    
+                    <div class="card-actions">
+                        <span class="card-action-icon edit-icon"><i class="fas fa-edit"></i></span> 
+                        <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
+                    </div>
+                </div>
+                <a href="product.html" class="text-decoration-none text-dark d-block"> 
+                    <div class="product-details">
+                        <p class="customizable-badge">CUSTOMIZABLE</p>
+                        <p class="product-name">Speedy Bandoulière 30</p>
+                        <p class="product-price">$1,980.00</p>
+                    </div>
+                </a>
+            </div>
         </div>
 
         <div class="col-6 col-md-3">
-            <a href="product.html" class="text-decoration-none text-dark"> 
             <div class="product-card text-center">
-                <div class="product-image-wrapper">
-                    <img src="image/backpack2.avif" class="product-image" alt="Speedy B 30 Monogram">
+                <div id="speedyCarousel" class="carousel slide product-image-wrapper" data-bs-ride="carousel" data-bs-interval="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="image/backpack1.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Front">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack2.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Side">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack3.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Interior">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack4.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - On Model">
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#speedyCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#speedyCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                    
                     <div class="card-actions">
-                        <span class="card-action-icon quick-view-icon"><i class="fas fa-arrows-alt"></i></span>
+                        <span class="card-action-icon edit-icon"><i class="fas fa-edit"></i></span> 
                         <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
                     </div>
                 </div>
-                <div class="product-details">
-                    <p class="customizable-badge">CUSTOMIZABLE</p>
-                    <p class="product-name">Speedy Bandoulière 30</p>
-                    <p class="product-price">$1,960.00</p>
-                </div>
+                <a href="product.html" class="text-decoration-none text-dark d-block"> 
+                    <div class="product-details">
+                        <p class="customizable-badge">CUSTOMIZABLE</p>
+                        <p class="product-name">Speedy Bandoulière 30</p>
+                        <p class="product-price">$1,980.00</p>
+                    </div>
+                </a>
             </div>
-            </a>
         </div>
 
         <div class="col-6 col-md-3">
-            <a href="product.html" class="text-decoration-none text-dark"> 
             <div class="product-card text-center">
-                <div class="product-image-wrapper">
-                    <img src="image/backpack3.avif" class="product-image" alt="Speedy B 20 Monogram">
+                <div id="speedyCarousel" class="carousel slide product-image-wrapper" data-bs-ride="carousel" data-bs-interval="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="image/backpack1.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Front">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack2.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Side">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack3.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Interior">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack4.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - On Model">
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#speedyCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#speedyCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                    
                     <div class="card-actions">
-                        <span class="card-action-icon quick-view-icon"><i class="fas fa-arrows-alt"></i></span>
+                        <span class="card-action-icon edit-icon"><i class="fas fa-edit"></i></span> 
                         <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
                     </div>
                 </div>
-                <div class="product-details">
-                    <p class="customizable-badge text-white user-select-none">CUSTOMIZABLE</p> 
-                    <p class="product-name">Speedy Bandoulière 20</p>
-                    <p class="product-price">$2,260.00</p>
-                    <div class="color-swatches mt-1">
-                        <span class="color-swatch" style="background-color: black; border: 1px solid #333;"></span>
-                        <span class="color-swatch" style="background-color: #D3C1B6;"></span>
+                <a href="product.html" class="text-decoration-none text-dark d-block"> 
+                    <div class="product-details">
+                        <p class="customizable-badge">CUSTOMIZABLE</p>
+                        <p class="product-name">Speedy Bandoulière 30</p>
+                        <p class="product-price">$1,980.00</p>
                     </div>
-                </div>
+                </a>
             </div>
-            </a>
         </div>
 
-        <div class="col-6 col-md-3">
-            <a href="product.html" class="text-decoration-none text-dark"> 
+         <div class="col-6 col-md-3">
             <div class="product-card text-center">
-                <div class="product-image-wrapper">
-                    <img src="image/backpack4.avif" class="product-image" alt="Speedy B 25 Damier Ebène">
+                <div id="speedyCarousel" class="carousel slide product-image-wrapper" data-bs-ride="carousel" data-bs-interval="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="image/backpack1.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Front">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack2.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Side">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack3.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Interior">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack4.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - On Model">
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#speedyCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#speedyCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                    
                     <div class="card-actions">
-                        <span class="card-action-icon quick-view-icon"><i class="fas fa-arrows-alt"></i></span>
+                        <span class="card-action-icon edit-icon"><i class="fas fa-edit"></i></span> 
                         <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
                     </div>
                 </div>
-                <div class="product-details">
-                    <p class="customizable-badge text-white user-select-none">CUSTOMIZABLE</p>
-                    <p class="product-name">Speedy Bandoulière 25</p>
-                    <p class="product-price">$1,940.00</p>
-                    <div class="color-swatches mt-1">
-                        <span class="color-swatch active" style="background-color: #6C5245; border: 2px solid #333;"></span>
-                        <span class="color-swatch" style="background-color: black; border: 1px solid #ccc;"></span>
+                <a href="product.html" class="text-decoration-none text-dark d-block"> 
+                    <div class="product-details">
+                        <p class="customizable-badge">CUSTOMIZABLE</p>
+                        <p class="product-name">Speedy Bandoulière 30</p>
+                        <p class="product-price">$1,980.00</p>
                     </div>
-                </div>
+                </a>
             </div>
-            </a>
-        </div>
-        <div class="col-6 col-md-3">
-            <a href="product.html" class="text-decoration-none text-dark"> 
-            <div class="product-card text-center">
-                <div class="product-image-wrapper">
-                    <img src="image/backpack5.avif" class="product-image" alt="Speedy B 25 Damier Ebène">
-                    <div class="card-actions">
-                        <span class="card-action-icon quick-view-icon"><i class="fas fa-arrows-alt"></i></span>
-                        <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
-                    </div>
-                </div>
-                <div class="product-details">
-                    <p class="customizable-badge text-white user-select-none">CUSTOMIZABLE</p>
-                    <p class="product-name">Speedy Bandoulière 25</p>
-                    <p class="product-price">$1,940.00</p>
-                    <div class="color-swatches mt-1">
-                        <span class="color-swatch active" style="background-color: #6C5245; border: 2px solid #333;"></span>
-                        <span class="color-swatch" style="background-color: black; border: 1px solid #ccc;"></span>
-                    </div>
-                </div>
-            </div>
-            </a>
-        </div>
-        <div class="col-6 col-md-3">
-            <a href="product.html" class="text-decoration-none text-dark"> 
-            <div class="product-card text-center">
-                <div class="product-image-wrapper">
-                    <img src="image/backpack6.avif" class="product-image" alt="Speedy B 25 Damier Ebène">
-                    <div class="card-actions">
-                        <span class="card-action-icon quick-view-icon"><i class="fas fa-arrows-alt"></i></span>
-                        <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
-                    </div>
-                </div>
-                <div class="product-details">
-                    <p class="customizable-badge text-white user-select-none">CUSTOMIZABLE</p>
-                    <p class="product-name">Speedy Bandoulière 25</p>
-                    <p class="product-price">$1,940.00</p>
-                    <div class="color-swatches mt-1">
-                        <span class="color-swatch active" style="background-color: #6C5245; border: 2px solid #333;"></span>
-                        <span class="color-swatch" style="background-color: black; border: 1px solid #ccc;"></span>
-                    </div>
-                </div>
-            </div>
-            </a>
-        </div>
-        <div class="col-6 col-md-3">
-            <a href="product.html" class="text-decoration-none text-dark"> 
-            <div class="product-card text-center">
-                <div class="product-image-wrapper">
-                    <img src="image/backpack6.avif" class="product-image" alt="Speedy B 25 Damier Ebène">
-                    <div class="card-actions">
-                        <span class="card-action-icon quick-view-icon"><i class="fas fa-arrows-alt"></i></span>
-                        <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
-                    </div>
-                </div>
-                <div class="product-details">
-                    <p class="customizable-badge text-white user-select-none">CUSTOMIZABLE</p>
-                    <p class="product-name">Speedy Bandoulière 25</p>
-                    <p class="product-price">$1,940.00</p>
-                    <div class="color-swatches mt-1">
-                        <span class="color-swatch active" style="background-color: #6C5245; border: 2px solid #333;"></span>
-                        <span class="color-swatch" style="background-color: black; border: 1px solid #ccc;"></span>
-                    </div>
-                </div>
-            </div>
-            </a>
-        </div>
-        <div class="col-6 col-md-3">
-            <a href="product.html" class="text-decoration-none text-dark"> 
-            <div class="product-card text-center">
-                <div class="product-image-wrapper">
-                    <img src="image/backpack8.avif" class="product-image" alt="Speedy B 25 Damier Ebène">
-                    <div class="card-actions">
-                        <span class="card-action-icon quick-view-icon"><i class="fas fa-arrows-alt"></i></span>
-                        <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
-                    </div>
-                </div>
-                <div class="product-details">
-                    <p class="customizable-badge text-white user-select-none">CUSTOMIZABLE</p>
-                    <p class="product-name">Speedy Bandoulière 25</p>
-                    <p class="product-price">$1,940.00</p>
-                    <div class="color-swatches mt-1">
-                        <span class="color-swatch active" style="background-color: #6C5245; border: 2px solid #333;"></span>
-                        <span class="color-swatch" style="background-color: black; border: 1px solid #ccc;"></span>
-                    </div>
-                </div>
-            </div>
-            </a>
-        </div>
-        <div class="col-6 col-md-3">
-            <a href="product.html" class="text-decoration-none text-dark"> 
-            <div class="product-card text-center">
-                <div class="product-image-wrapper">
-                    <img src="image/backpack9.avif" class="product-image" alt="Speedy B 25 Damier Ebène">
-                    <div class="card-actions">
-                        <span class="card-action-icon quick-view-icon"><i class="fas fa-arrows-alt"></i></span>
-                        <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
-                    </div>
-                </div>
-                <div class="product-details">
-                    <p class="customizable-badge text-white user-select-none">CUSTOMIZABLE</p>
-                    <p class="product-name">Speedy Bandoulière 25</p>
-                    <p class="product-price">$1,940.00</p>
-                    <div class="color-swatches mt-1">
-                        <span class="color-swatch active" style="background-color: #6C5245; border: 2px solid #333;"></span>
-                        <span class="color-swatch" style="background-color: black; border: 1px solid #ccc;"></span>
-                    </div>
-                </div>
-            </div>
-            </a>
-        </div>
-        <div class="col-6 col-md-3">
-            <a href="product.html" class="text-decoration-none text-dark"> 
-            <div class="product-card text-center">
-                <div class="product-image-wrapper">
-                    <img src="image/backpack1.avif" class="product-image" alt="Speedy B 25 Damier Ebène">
-                    <div class="card-actions">
-                        <span class="card-action-icon quick-view-icon"><i class="fas fa-arrows-alt"></i></span>
-                        <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
-                    </div>
-                </div>
-                <div class="product-details">
-                    <p class="customizable-badge text-white user-select-none">CUSTOMIZABLE</p>
-                    <p class="product-name">Speedy Bandoulière 25</p>
-                    <p class="product-price">$1,940.00</p>
-                    <div class="color-swatches mt-1">
-                        <span class="color-swatch active" style="background-color: #6C5245; border: 2px solid #333;"></span>
-                        <span class="color-swatch" style="background-color: black; border: 1px solid #ccc;"></span>
-                    </div>
-                </div>
-            </div>
-            </a>
-        </div>
-        <div class="col-6 col-md-3">
-            <a href="product.html" class="text-decoration-none text-dark"> 
-            <div class="product-card text-center">
-                <div class="product-image-wrapper">
-                    <img src="image/backpack2.avif" class="product-image" alt="Speedy B 25 Damier Ebène">
-                    <div class="card-actions">
-                        <span class="card-action-icon quick-view-icon"><i class="fas fa-arrows-alt"></i></span>
-                        <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
-                    </div>
-                </div>
-                <div class="product-details">
-                    <p class="customizable-badge text-white user-select-none">CUSTOMIZABLE</p>
-                    <p class="product-name">Speedy Bandoulière 25</p>
-                    <p class="product-price">$1,940.00</p>
-                    <div class="color-swatches mt-1">
-                        <span class="color-swatch active" style="background-color: #6C5245; border: 2px solid #333;"></span>
-                        <span class="color-swatch" style="background-color: black; border: 1px solid #ccc;"></span>
-                    </div>
-                </div>
-            </div>
-            </a>
         </div>
 
+         <div class="col-6 col-md-3">
+            <div class="product-card text-center">
+                <div id="speedyCarousel" class="carousel slide product-image-wrapper" data-bs-ride="carousel" data-bs-interval="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="image/backpack1.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Front">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack2.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Side">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack3.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Interior">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack4.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - On Model">
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#speedyCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#speedyCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                    
+                    <div class="card-actions">
+                        <span class="card-action-icon edit-icon"><i class="fas fa-edit"></i></span> 
+                        <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
+                    </div>
+                </div>
+                <a href="product.html" class="text-decoration-none text-dark d-block"> 
+                    <div class="product-details">
+                        <p class="customizable-badge">CUSTOMIZABLE</p>
+                        <p class="product-name">Speedy Bandoulière 30</p>
+                        <p class="product-price">$1,980.00</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+
+         <div class="col-6 col-md-3">
+            <div class="product-card text-center">
+                <div id="speedyCarousel" class="carousel slide product-image-wrapper" data-bs-ride="carousel" data-bs-interval="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="image/backpack1.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Front">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack2.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Side">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack3.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - Interior">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="image/backpack4.avif" class="product-image d-block w-100" alt="Speedy B 30 Monogram - On Model">
+                        </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#speedyCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#speedyCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                    
+                    <div class="card-actions">
+                        <span class="card-action-icon edit-icon"><i class="fas fa-edit"></i></span> 
+                        <span class="card-action-icon favorite-icon"><i class="far fa-heart"></i></span>
+                    </div>
+                </div>
+                <a href="product.html" class="text-decoration-none text-dark d-block"> 
+                    <div class="product-details">
+                        <p class="customizable-badge">CUSTOMIZABLE</p>
+                        <p class="product-name">Speedy Bandoulière 30</p>
+                        <p class="product-price">$1,980.00</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+</div>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="filterOffcanvas" aria-labelledby="filterOffcanvasLabel">
+    <div class="offcanvas-header" style="border-bottom: 1px solid #e0e0e0;">
+        <h5 class="offcanvas-title" id="filterOffcanvasLabel" style="font-weight: 500;">Filter by</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" style="font-size: 1.25rem;"></button>
+    </div>
+    
+    <div class="offcanvas-body p-0">
         
-
+        <div class="filter-item d-flex justify-content-between align-items-center p-3" style="border-bottom: 1px solid #e0e0e0;">
+            <label class="form-check-label" for="availableOnlineToggle">Available Online</label>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="availableOnlineToggle">
+            </div>
         </div>
-   
+
+        <div class="filter-group accordion-item" style="border-bottom: 1px solid #e0e0e0;">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed p-3" type="button" data-bs-toggle="collapse" data-bs-target="#priceRangeCollapse" aria-expanded="false" aria-controls="priceRangeCollapse" style="background-color: white; color: black; font-weight: 500;">
+                    Price Range
+                </button>
+            </h2>
+            <div id="priceRangeCollapse" class="accordion-collapse collapse" data-bs-parent="#filterOffcanvas">
+                <div class="accordion-body px-3 py-2">
+                    <p style="font-size: 14px; color: #666;">[Price Range Slider Placeholder]</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-group accordion-item" style="border-bottom: 1px solid #e0e0e0;">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed p-3" type="button" data-bs-toggle="collapse" data-bs-target="#sortByCollapse" aria-expanded="false" aria-controls="sortByCollapse" style="background-color: white; color: black; font-weight: 500;">
+                    Sort by
+                </button>
+            </h2>
+            <div id="sortByCollapse" class="accordion-collapse collapse" data-bs-parent="#filterOffcanvas">
+                <div class="accordion-body px-3 py-2">
+                    <p style="font-size: 14px; color: #666;">[Sort Options Placeholder]</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-group accordion-item" style="border-bottom: 1px solid #e0e0e0;">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed p-3" type="button" data-bs-toggle="collapse" data-bs-target="#genderCollapse" aria-expanded="false" aria-controls="genderCollapse" style="background-color: white; color: black; font-weight: 500;">
+                    Gender
+                </button>
+            </h2>
+            <div id="genderCollapse" class="accordion-collapse collapse" data-bs-parent="#filterOffcanvas">
+                <div class="accordion-body px-3 py-2">
+                    <p style="font-size: 14px; color: #666;">[Gender Checkboxes Placeholder]</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-group accordion-item" style="border-bottom: 1px solid #e0e0e0;">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed p-3" type="button" data-bs-toggle="collapse" data-bs-target="#categoriesCollapse" aria-expanded="false" aria-controls="categoriesCollapse" style="background-color: white; color: black; font-weight: 500;">
+                    Categories
+                </button>
+            </h2>
+            <div id="categoriesCollapse" class="accordion-collapse collapse" data-bs-parent="#filterOffcanvas">
+                <div class="accordion-body px-3 py-2">
+                    <p style="font-size: 14px; color: #666;">[Category Checkboxes Placeholder]</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-group accordion-item" style="border-bottom: 1px solid #e0e0e0;">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed p-3" type="button" data-bs-toggle="collapse" data-bs-target="#materialsCollapse" aria-expanded="false" aria-controls="materialsCollapse" style="background-color: white; color: black; font-weight: 500;">
+                    Materials
+                </button>
+            </h2>
+            <div id="materialsCollapse" class="accordion-collapse collapse" data-bs-parent="#filterOffcanvas">
+                <div class="accordion-body px-3 py-2">
+                    <p style="font-size: 14px; color: #666;">[Material Checkboxes Placeholder]</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-group accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed p-3" type="button" data-bs-toggle="collapse" data-bs-target="#colorsCollapse" aria-expanded="false" aria-controls="colorsCollapse" style="background-color: white; color: black; font-weight: 500;">
+                    Colors
+                </button>
+            </h2>
+            <div id="colorsCollapse" class="accordion-collapse collapse" data-bs-parent="#filterOffcanvas">
+                <div class="accordion-body px-3 py-2">
+                    <p style="font-size: 14px; color: #666;">[Color Swatches Placeholder]</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="offcanvas-footer p-3" style="border-top: 1px solid #e0e0e0;">
+        <button class="btn btn-dark w-100" style="background-color: black; border-color: black; height: 50px; font-weight: bold;">
+            Show Products
+        </button>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
